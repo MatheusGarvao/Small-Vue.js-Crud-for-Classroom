@@ -6,11 +6,12 @@
     <div class="main">
       <div class="card-container">
         <Card
-          v-for="(card, index) in cards"
-          :key="index"
-          :title="card.title"
-          :description="card.description"
-          :url="card.url"
+          v-for="(card) in cards"
+          :key="card[1]"
+          :id="card[1]"
+          :title="card[0].title"
+          :description="card[0].description"
+          :url="card[0].url"
           @delete-card="removeCard"
         />
       </div>
@@ -20,17 +21,19 @@
 
 <script setup>
 import myHeader from "./components/myHeader.vue";
-import Card from "./components/Card.vue";
-import CardForm from "./components/CardForm.vue";
+import Card from "./components/card.vue";
+import CardForm from "./components/cardForm.vue";
 import { ref } from "vue";
 
 const cards = ref([]);
-
+var lastID = 0;
 const addCard = (card) => {
-  cards.value.push(card);
+  cards.value.push([card, lastID]);
+  lastID++;
 };
-const removeCard = (title) => {
-  cards.value = cards.value.filter((card) => card.title !== title);
+const removeCard = (id) => {
+  cards.value = cards.value.filter((x) => x[1] !== id);
+  console.log(cards.value)
 };
 </script>
 
