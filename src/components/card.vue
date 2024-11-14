@@ -1,5 +1,6 @@
 <template>
   <div class="card">
+    <div class="delete" @click="deleteCard">X</div>
     <div class="centralizar">
       <h2>{{ title }}</h2>
       <p>
@@ -7,7 +8,6 @@
       </p>
       <a :href="url" target="_blank">Veja mais aqui</a>
     </div>
-    <div class="delete" @click="deleteCard">X</div>
   </div>
 </template>
 <script setup>
@@ -77,9 +77,17 @@ onMounted(() => {
 .card > div p {
   margin-top: 0.5em;
 }
-
+.centralizar {
+  justify-content: center;
+  align-content: center;
+}
 .delete {
+  position: absolute;
+  margin-left: 210px;
   color: red;
   cursor: pointer;
+  font-size: 25px;
+  justify-items: end;
+  text-align: right;
 }
 </style>
