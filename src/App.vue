@@ -15,6 +15,8 @@
           @delete-card="removeCard"
         />
       </div>
+
+      <div v-if="!cards.length">Não há filmes cadastrados </div>
     </div>
   </main>
 </template>
