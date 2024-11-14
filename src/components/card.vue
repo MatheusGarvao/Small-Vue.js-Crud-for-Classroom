@@ -90,4 +90,8 @@ onMounted(() => {
   justify-items: end;
   text-align: right;
 }
+.card h2,
+p {
+  pointer-events: none;
+}
 </style>
