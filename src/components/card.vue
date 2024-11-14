@@ -50,27 +50,22 @@ onMounted(() => {
 </script>
 <style>
 .card {
-  height: 15em;
-  margin-top: 10%;
-  border-radius: 50% 50% 50% 50% / 24% 24% 76% 76%;
+  margin: auto;
+  padding: 50px;
+  border-radius: 5% 5% 5% 5% / 15% 15% 15% 15%;
   background-image: linear-gradient(
-    45deg,
-    hsl(248deg 100% 2%) 0%,
-    hsl(253deg 76% 9%) 25%,
-    hsl(238deg 72% 14%) 46%,
-    hsl(233deg 70% 16%) 65%,
-    hsl(229deg 100% 22%) 82%,
-    hsl(243deg 98% 36%) 100%
+    0deg,
+    hsl(0 0% 85%) 0%,
+    hsl(0 0% 95%) 100%
   );
   backdrop-filter: blur(1px);
-  border: 2px solid #ff6b99;
+  border: 2px solid #657094;
 }
 
 .card > div {
-  width: 10em;
-  margin-top: 2em;
+  width: auto;
+  margin: auto;
   overflow: hidden;
-  margin-left: 20%;
   text-align: center;
 }
 
