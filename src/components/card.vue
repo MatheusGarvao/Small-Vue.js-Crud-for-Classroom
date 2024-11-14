@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <div>
+    <div class="centralizar">
       <h2>{{ title }}</h2>
       <p>
         {{ description }}
@@ -11,47 +11,50 @@
   </div>
 </template>
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted } from "vue"
 const props = defineProps({
   title: String,
   description: String,
   url: String,
-});
-const emit = defineEmits();
+})
+const emit = defineEmits()
 
-const description = ref("");
-const title = ref("");
-const url = ref("");
+const description = ref("")
+const title = ref("")
+const url = ref("")
 
 const deleteCard = () => {
-  emit("delete-card", props.title);
-};
+  emit("delete-card", props.title)
+}
 
 onMounted(() => {
   if (props.description) {
     description.value =
       props.description.trim().length > 61
         ? props.description.slice(0, 61) + "..."
-        : props.description;
+        : props.description
   } else {
-    description.value = "Não há descrição cadastrada para este filme";
+    description.value = "Não há descrição cadastrada para este filme"
   }
 
   if (props.title) {
     title.value =
-      props.title.trim().length > 11 ? props.title.slice(0, 11) + "..." : props.title;
+      props.title.trim().length > 11
+        ? props.title.slice(0, 11) + "..."
+        : props.title
   } else {
-    title.value = "Não tem título";
+    title.value = "Não tem título"
   }
 
-  url.value = props.url;
-});
+  url.value = props.url
+})
 </script>
 <style>
 .card {
   height: 15em;
   margin-top: 10%;
-  border-radius: 50% 50% 50% 50% / 24% 24% 76% 76%;
+  border-radius: 10px;
+  /* border-radius: 50% 50% 50% 50% / 24% 24% 76% 76%; */
   background-image: linear-gradient(
     45deg,
     hsl(248deg 100% 2%) 0%,
@@ -61,16 +64,14 @@ onMounted(() => {
     hsl(229deg 100% 22%) 82%,
     hsl(243deg 98% 36%) 100%
   );
-  backdrop-filter: blur(1px);
   border: 2px solid #ff6b99;
+  margin-bottom: 30px;
 }
 
 .card > div {
-  width: 10em;
-  margin-top: 2em;
-  overflow: hidden;
-  margin-left: 20%;
   text-align: center;
+  overflow: hidden;
+  text-transform: uppercase;
 }
 
 .card > div p {

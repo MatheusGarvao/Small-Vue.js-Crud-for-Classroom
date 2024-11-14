@@ -19,30 +19,30 @@
 </template>
 
 <script setup>
-import myHeader from "./components/myHeader.vue";
-import Card from "./components/Card.vue";
-import CardForm from "./components/CardForm.vue";
-import { ref } from "vue";
+import myHeader from "./components/myHeader.vue"
+import Card from "./components/card.vue"
+import CardForm from "./components/cardForm.vue"
+import { ref } from "vue"
 
-const cards = ref([]);
+const cards = ref([])
 
 const addCard = (card) => {
-  cards.value.push(card);
-};
+  cards.value.push(card)
+}
 const removeCard = (title) => {
-  cards.value = cards.value.filter((card) => card.title !== title);
-};
+  cards.value = cards.value.filter((card) => card.title !== title)
+}
 </script>
 
 <style>
 * {
-  margin: 0%;
+  margin: 0px;
   color: white;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 body {
-  height: 100vh;
+  height: 100%;
   background-image: linear-gradient(
     75deg,
     hsl(251deg 100% 6%) 0%,
