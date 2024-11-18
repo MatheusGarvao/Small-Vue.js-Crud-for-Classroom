@@ -13,6 +13,7 @@
 <script setup>
 import { ref, onMounted } from "vue"
 const props = defineProps({
+  id: Number,
   title: String,
   description: String,
   url: String,
@@ -24,8 +25,8 @@ const title = ref("")
 const url = ref("")
 
 const deleteCard = () => {
-  emit("delete-card", props.title)
-}
+  emit("delete-card", props.id);
+};
 
 onMounted(() => {
   if (props.description) {
