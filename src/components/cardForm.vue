@@ -58,6 +58,14 @@ button {
   padding: 15px;
   text-align: center;
   text-transform: uppercase;
+  transition: 0.1s;
+}
+input:hover,
+textarea:hover,
+button:hover {
+  outline: solid #900;
+  background-color: #c7c7c7;
+  font-size: 1.5rem;
 }
 .inputs {
   border-radius: 10px;

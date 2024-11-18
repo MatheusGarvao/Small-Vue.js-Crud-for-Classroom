@@ -25,8 +25,8 @@ const title = ref("")
 const url = ref("")
 
 const deleteCard = () => {
-  emit("delete-card", props.id);
-};
+  emit("delete-card", props.id)
+}
 
 onMounted(() => {
   if (props.description) {
@@ -52,7 +52,7 @@ onMounted(() => {
 </script>
 <style>
 .card {
-  height: 15em;
+  height: 120px;
   margin-top: 10%;
   border-radius: 10px;
   /* border-radius: 50% 50% 50% 50% / 24% 24% 76% 76%; */
@@ -82,14 +82,25 @@ onMounted(() => {
   justify-content: center;
   align-content: center;
 }
+.centralizar a {
+  transition: 0.3s;
+  text-decoration: none;
+}
 .delete {
   position: absolute;
   margin-left: 210px;
   color: red;
   cursor: pointer;
-  font-size: 25px;
+  font-size: 1.56rem;
   justify-items: end;
   text-align: right;
+  transition: 0.3s;
+}
+.delete:hover {
+  font-size: 2rem;
+}
+.centralizar a:hover {
+  font-size: 1.5rem;
 }
 .card h2,
 p {

@@ -1,12 +1,11 @@
 <template>
   <myHeader titulo="Filmes"></myHeader>
-
   <main>
     <CardForm @card-added="addCard" />
     <div class="main">
       <div class="card-container">
         <Card
-          v-for="(card) in cards"
+          v-for="card in cards"
           :key="card[1]"
           :id="card[1]"
           :title="card[0].title"
@@ -16,27 +15,27 @@
         />
       </div>
 
-      <div v-if="!cards.length">Não há filmes cadastrados </div>
+      <div v-if="!cards.length">Não há filmes cadastrados</div>
     </div>
   </main>
 </template>
 
 <script setup>
-import myHeader from "./components/myHeader.vue";
-import Card from "./components/card.vue";
-import CardForm from "./components/cardForm.vue";
-import { ref } from "vue";
+import myHeader from "./components/myHeader.vue"
+import Card from "./components/card.vue"
+import CardForm from "./components/cardForm.vue"
+import { ref } from "vue"
 
-const cards = ref([]);
-var lastID = 0;
+const cards = ref([])
+var lastID = 0
 const addCard = (card) => {
-  cards.value.push([card, lastID]);
-  lastID++;
-};
+  cards.value.push([card, lastID])
+  lastID++
+}
 const removeCard = (id) => {
-  cards.value = cards.value.filter((x) => x[1] !== id);
+  cards.value = cards.value.filter((x) => x[1] !== id)
   console.log(cards.value)
-};
+}
 </script>
 
 <style>
