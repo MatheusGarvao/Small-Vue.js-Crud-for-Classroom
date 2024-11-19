@@ -69,8 +69,8 @@ button:hover {
 }
 .inputs {
   border-radius: 10px;
-  font-size: large;
-  padding: 15px;
+  font-size: 1.25rem;
+  padding: 1rem;
   text-align: center;
   text-transform: uppercase;
   cursor: text;
