@@ -15,7 +15,7 @@
         />
       </div>
 
-      <div v-if="!cards.length">Não há filmes cadastrados</div>
+      <div v-if="!cards.length"><p>Não há filmes cadastrados</p></div>
     </div>
   </main>
 </template>
@@ -46,7 +46,7 @@ const removeCard = (id) => {
 }
 
 body {
-  height: 100%;
+  min-height: 100vh;
   background-image: linear-gradient(
     75deg,
     hsl(251deg 100% 6%) 0%,
