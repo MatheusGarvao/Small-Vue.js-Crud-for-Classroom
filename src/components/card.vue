@@ -115,4 +115,7 @@ onMounted(() => {
 p {
   pointer-events: none;
 }
+h2 {
+  display: inline-block;
+}
 </style>

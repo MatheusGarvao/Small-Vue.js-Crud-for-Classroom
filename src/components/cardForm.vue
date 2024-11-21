@@ -19,9 +19,9 @@
 
 <script setup>
 import { ref, defineEmits } from "vue"
-import { titleInput } from "./validations/TitleInput.vue";
-import { descriptionInput } from "./validations/DescriptionInput.vue";
-import { urlInput } from "./validations/UrlInput.vue";
+import { titleInput } from "./validations/titleInput.vue";
+import { descriptionInput } from "./validations/descriptionInput.vue";
+import { urlInput } from "./validations/urlInput.vue";
 
 const emit = defineEmits()
 
