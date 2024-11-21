@@ -8,11 +8,11 @@
 <script setup>
 const props = defineProps({
   titulo: String,
-});
+})
 </script>
 <style>
 header {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.35);
   width: 100%;
   position: absolute;
   text-align: center;
