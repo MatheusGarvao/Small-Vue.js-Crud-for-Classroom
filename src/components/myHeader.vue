@@ -1,6 +1,8 @@
 <template>
   <header class="gap">
-    <h1>{{ titulo }}</h1>
+    <a href="https://www.youtube.com/watch?v=SwG6i-B8ztk"
+      ><h1>{{ titulo }}</h1></a
+    >
   </header>
   <div class="gap"></div>
 </template>
@@ -17,6 +19,7 @@ header {
   position: absolute;
   text-align: center;
   justify-content: center;
+  align-items: center;
 }
 
 header > h1 {
@@ -25,5 +28,9 @@ header > h1 {
 }
 .gap {
   height: 5em;
+}
+a {
+  text-decoration: none;
+  cursor: default;
 }
 </style>
