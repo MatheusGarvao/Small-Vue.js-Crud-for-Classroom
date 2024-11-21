@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div>
     <CardForm @card-added="addCard" />
   </div>
