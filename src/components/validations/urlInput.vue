@@ -1,5 +1,5 @@
 <script>
-export function urlInput(url) {
+export function UrlInput(url) {
   const trimmedUrl = url.trim();
   const urlRegex = /^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(:\d+)?(\/[^\s]*)?$/;
 

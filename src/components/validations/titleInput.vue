@@ -1,5 +1,5 @@
 <script>
-export function titleInput(title) {
+export function TitleInput(title) {
   const trimmedTitle = title.trim();
   if (trimmedTitle.length <= 0 || trimmedTitle.length > 100) {
     return {

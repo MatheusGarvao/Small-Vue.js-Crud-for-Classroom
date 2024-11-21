@@ -1,5 +1,5 @@
 <script>
-export function descriptionInput(description) {
+export function FescriptionInput(description) {
   const trimmedDescription = description.trim();
   if (trimmedDescription.length <= 0 || trimmedDescription.length > 1000) {
     return {
