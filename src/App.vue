@@ -1,50 +1,25 @@
 <template>
-  <myHeader titulo="Filmes"></myHeader>
-  <main>
-    <CardForm @card-added="addCard" />
-    <div class="main">
-      <div class="card-container">
-        <Card
-          v-for="card in cards"
-          :key="card[1]"
-          :id="card[1]"
-          :title="card[0].title"
-          :description="card[0].description"
-          :url="card[0].url"
-          @delete-card="removeCard"
-        />
-      </div>
-
-      <div v-if="!cards.length"><p>Não há filmes cadastrados</p></div>
-    </div>
-  </main>
+  <div>
+    <myHeader titulo="Gerenciar Filmes"></myHeader>
+    <nav>
+      <router-link to="/">Adicionar Filme</router-link> |
+      <router-link to="/view">Ver Filmes</router-link> |
+      <router-link to="/delete">Excluir Filmes</router-link>
+    </nav>
+    <router-view />
+  </div>
 </template>
 
 <script setup>
 import myHeader from "./components/myHeader.vue"
-import Card from "./components/card.vue"
-import CardForm from "./components/cardForm.vue"
-import { ref } from "vue"
-
-const cards = ref([])
-var lastID = 0
-const addCard = (card) => {
-  cards.value.push([card, lastID])
-  lastID++
-}
-const removeCard = (id) => {
-  cards.value = cards.value.filter((x) => x[1] !== id)
-  console.log(cards.value)
-}
 </script>
 
 <style>
 * {
-  margin: 0px;
+  margin: 0%;
   color: white;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
-
 body {
   min-height: 100vh;
   background-image: linear-gradient(
@@ -57,10 +32,23 @@ body {
     hsl(275deg 100% 13%) 100%
   );
 }
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
 
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(3, 15em);
-  justify-content: space-evenly;
+nav a {
+  text-decoration: none;
+  color: white;
+  background-color: #900;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+nav a:hover {
+  background-color: #ff6b99;
 }
 </style>
