@@ -111,11 +111,14 @@ onMounted(() => {
   font-size: 1.5rem;
 }
 
-.card h2,
-p {
+.card p {
   pointer-events: none;
 }
 h2 {
   display: inline-block;
+  cursor: pointer;
+}
+a {
+  cursor: pointer;
 }
 </style>
