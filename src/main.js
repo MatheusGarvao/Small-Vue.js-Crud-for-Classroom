@@ -2,9 +2,9 @@ import "./assets/main.css"
 import { createRouter, createWebHistory } from "vue-router"
 import { createApp } from "vue"
 import App from "./App.vue"
-import AddMovieView from "./components/AddMovieView.vue"
-import ViewMoviesView from "./components/ViewMoviesView.vue"
-import DeleteMoviesView from "./components/DeleteMoviesView.vue"
+import AddMovieView from "./pages/addMovies.vue"
+import ViewMoviesView from "./pages/viewMovies.vue"
+import DeleteMoviesView from "./pages/deleteMovies.vue"
 
 const routes = [
   { path: "/", name: "AddMovie", component: AddMovieView },

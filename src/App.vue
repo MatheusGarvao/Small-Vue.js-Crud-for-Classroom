@@ -1,9 +1,9 @@
 <template>
   <div>
-    <myHeader titulo="Gerenciar Filmes"></myHeader>
+    <myHeader titulo="Lista de Filmes"></myHeader>
     <nav>
-      <router-link to="/">Adicionar Filme</router-link> |
-      <router-link to="/view">Ver Filmes</router-link> |
+      <router-link to="/">Adicionar Filme</router-link> 
+      <router-link to="/view">Ver Filmes</router-link> 
       <router-link to="/delete">Excluir Filmes</router-link>
     </nav>
     <router-view />
