@@ -19,8 +19,11 @@
 
 <script setup>
 import { ref, defineEmits } from "vue"
+import { titleInput } from "./validations/TitleInput.vue";
+import { descriptionInput } from "./validations/DescriptionInput.vue";
+import { urlInput } from "./validations/UrlInput.vue";
+
 const emit = defineEmits()
-const urlRegex = /^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(:\d+)?(\/[^\s]*)?$/;
 
 const title = ref({
   "content": '',
@@ -35,53 +38,39 @@ const url = ref({
   "errorValue": '',
 })
 const valid = ref(true)
-
 const addCard = () => {
+  valid.value = true;
   title.value.content = title.value.content.trim();
   description.value.content = description.value.content.trim();
   url.value.content = url.value.content.trim();
-  valid.value = true;
+  const titleResult = titleInput(title.value.content);
+  title.value.errorValue = titleResult.errorValue;
+  if (!titleResult.valid) valid.value = false;
 
-  if (title.value.content.length > 100 || title.value.content.length <= 0) {
-    valid.value = false
-    title.value.errorValue = "O titulo deve ter no mínimo 1 caractere e no máximo 100 caracteres"
-  } else {
-    title.value.errorValue = ""
-  }
+  const descriptionResult = descriptionInput(description.value.content);
+  description.value.errorValue = descriptionResult.errorValue;
+  if (!descriptionResult.valid) valid.value = false;
 
-
-  if (description.value.content.length > 1000 || description.value.content <= 0) {
-    valid.value = false
-    description.value.errorValue = "A descrição deve ter no mínimo 1 caractere e no máximo 1000 caracteres."
-  }
-
-
-  if (!urlRegex.test(url.value.content)) {
-    valid.value = false
-    url.value.errorValue = "O link fornecido não é uma URL válida.";
-  } else if (url.value.content == "") {
-    valid.value = false
-    url.value.errorValue = "Não há algum link fornecido"
-  } else {
-    url.value.errorValue = ""
-  }
-
-  
+  const urlResult = urlInput(url.value.content);
+  url.value.errorValue = urlResult.errorValue;
+  if (!urlResult.valid) valid.value = false;
 
   if (valid.value) {
     emit("card-added", {
+      id: 0,
       title: title.value.content,
       description: description.value.content,
       url: url.value.content,
-    })
+    });
 
-    title.value.content = ""
-    description.value.content = ""
-    url.value.content = ""
-    valid.value = true;
-    return
+    title.value.content = "";
+    title.value.errorValue = "";
+    description.value.content = "";
+    description.value.errorValue = "";
+    url.value.content = "";
+    url.value.errorValue = "";
   }
-}
+};
 </script>
 
 <style>

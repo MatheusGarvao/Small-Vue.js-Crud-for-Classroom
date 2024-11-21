@@ -2,10 +2,12 @@
   <div class="card">
     <div class="delete" @click="deleteCard">X</div>
     <div class="centralizar">
-      <h2>{{ title }}</h2>
-      <p>
-        {{ description }}
-      </p>
+      <router-link :to="{ name: 'MovieDetails', params: { id: id }, state: { movie: { id, title, description, url } } }"
+        class="card-link">
+        <h2>{{ title }}</h2>
+        <p>{{ description }}</p>
+      </router-link>
+
       <a :href="url" target="_blank">Site do Filme</a>
     </div>
   </div>

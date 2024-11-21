@@ -4,7 +4,6 @@
     <nav>
       <router-link to="/">Adicionar Filme</router-link> 
       <router-link to="/view">Ver Filmes</router-link> 
-      <router-link to="/delete">Excluir Filmes</router-link>
     </nav>
     <router-view />
   </div>

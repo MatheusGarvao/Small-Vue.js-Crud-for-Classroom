@@ -1,15 +1,12 @@
 <template>
   <div>
     <div class="card-container">
-      <Card
-        v-for="(card, index) in cards"
-        :key="index"
-        :title="card.title"
-        :description="card.description"
-        :url="card.url"
-      />
+      <Card v-for="(card) in cards" :key="card.id" :id="card.id" :title="card.title" :description="card.description" :url="card.url"
+        @delete-card="removeCard" />
     </div>
-    <div v-if="!cards.length"><p>Não há filmes cadastrados</p></div>
+    <div v-if="!cards.length" style="text-align: center;">
+      <p>Não há filmes cadastrados para excluir</p>
+    </div>
   </div>
 </template>
 
@@ -18,8 +15,16 @@ import Card from "../components/card.vue"
 import { ref } from "vue"
 
 const cards = ref(JSON.parse(localStorage.getItem("films")) || [])
-</script>
 
+const removeCard = (id) => {
+
+  cards.value = cards.value.filter((x) => {
+    return x.id !== id;
+  });
+
+  localStorage.setItem("films", JSON.stringify(cards.value))
+}
+</script>
 <style>
 .card-container {
   display: grid;
