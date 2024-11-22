@@ -19,9 +19,9 @@
 
 <script setup>
 import { ref, defineEmits } from "vue"
-import { titleInput } from "./validations/titleInput.vue";
-import { descriptionInput } from "./validations/descriptionInput.vue";
-import { urlInput } from "./validations/urlInput.vue";
+import  TitleInput  from './validations/TitleInput.vue';
+import DescriptionInput from './validations/DescriptionInput.vue';
+import  UrlInput  from './validations/UrlInput.vue';
 
 const emit = defineEmits()
 
@@ -43,15 +43,15 @@ const addCard = () => {
   title.value.content = title.value.content.trim();
   description.value.content = description.value.content.trim();
   url.value.content = url.value.content.trim();
-  const titleResult = titleInput(title.value.content);
+  const titleResult = TitleInput(title.value.content);
   title.value.errorValue = titleResult.errorValue;
   if (!titleResult.valid) valid.value = false;
 
-  const descriptionResult = descriptionInput(description.value.content);
+  const descriptionResult = DescriptionInput(description.value.content);
   description.value.errorValue = descriptionResult.errorValue;
   if (!descriptionResult.valid) valid.value = false;
 
-  const urlResult = urlInput(url.value.content);
+  const urlResult = UrlInput(url.value.content);
   url.value.errorValue = urlResult.errorValue;
   if (!urlResult.valid) valid.value = false;
 
